@@ -1,8 +1,13 @@
+import requests
+from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
+import csv
 import time
+
 
 # 크롬 옵션 설정
 options = Options()
@@ -15,23 +20,17 @@ options.add_experimental_option('useAutomationExtension', False)
 # 브라우저 실행
 broswer = webdriver.Chrome(options=options)
 
-# 쿠팡 페이지 접속
-url = "https://www.coupang.com"
+# 페이지 접속
+url = "https://www.melon.com/chart/index.htm"
 broswer.get(url)
+time.sleep(3)  # 페이지 로딩 대기
 
-time.sleep(5)  # 페이지 로딩 대기
+soup = BeautifulSoup(broswer.page_source,"lxml")
 
-input("종료시 enter>> ")
-
-
-
-
-# # 예시: 검색창에 '노트북' 입력
-# search_input = driver.find_element(By.NAME, 'q')
-# search_input.send_keys('노트북')
-# search_input.submit()
-
-# # 5초 대기 후 종료
-# time.sleep(5)
-# input("종료시 enter")
-# driver.quit()
+# ## html페이지 저장
+# with open("w0512/melon1.html","w",encoding="utf-8") as f:
+#     f.write(soup.prettify())
+    
+# ## html페이지 읽어오기
+# with open("w0512/melon1.html","r",encoding="utf-8") as f:
+#     soup = BeautifulSoup(f,"lxml")    
