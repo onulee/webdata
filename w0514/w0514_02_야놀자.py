@@ -77,6 +77,9 @@ while True: #무한반복 - 높이가 더이상 늘어나지 않을때까지
     # 현재높이를 이전높이변수에 저장
     prev_height = curr_height
     
+# selenium 내용 ↑
+#####################################################
+# Beautiful ↓
 
 ### html 파싱 - find,find_all,next_sibling,a[href]
 soup = BeautifulSoup(browser.page_source,"lxml")
@@ -104,18 +107,11 @@ for a in a_list:
         print(price)
     print("-"*30)
     
-
 print(len(a_list))
-
-
-
-
 
 ### 파일 저장
 with open("w0514/ya1.html","w",encoding="utf-8") as f:
     f.write(soup.prettify()) # html파일저장
-
-
 
 ### 프로그램 종료
 input("프로그램 종료시 엔터")
