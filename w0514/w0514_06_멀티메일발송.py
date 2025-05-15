@@ -8,7 +8,6 @@ from email import encoders
 recvMail = "onulee@naver.com" #받는사람 주소
 password = "HC4S4P5G2S2M" ## 네이버 로그인 비밀번호를 입력해도 되지만, 파일이 노출
 
-
 ### 파일첨부 부분 ###
 ## MIME 객체화
 msg = MIMEMultipart('alternative')
